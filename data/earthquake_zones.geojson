@@ -1,0 +1,157 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-118.2437, 34.0522]
+      },
+      "properties": {
+        "id": "earthquake_001",
+        "severity": "Major",
+        "risk_level": "high",
+        "last_updated": "2024-01-15",
+        "description": "San Andreas Fault zone",
+        "magnitude": 6.8,
+        "depth_km": 15.2,
+        "fault_system": "San Andreas",
+        "country": "USA",
+        "city": "Los Angeles"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4194, 37.7749]
+      },
+      "properties": {
+        "id": "earthquake_002",
+        "severity": "Strong",
+        "risk_level": "high",
+        "last_updated": "2024-01-14",
+        "description": "Hayward Fault activity",
+        "magnitude": 5.9,
+        "depth_km": 8.7,
+        "fault_system": "Hayward",
+        "country": "USA",
+        "city": "San Francisco"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6503, 35.6762]
+      },
+      "properties": {
+        "id": "earthquake_003",
+        "severity": "Major",
+        "risk_level": "high",
+        "last_updated": "2024-01-13",
+        "description": "Pacific Ring of Fire",
+        "magnitude": 7.2,
+        "depth_km": 45.3,
+        "fault_system": "Pacific Ring",
+        "country": "Japan",
+        "city": "Tokyo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.4964, 41.9028]
+      },
+      "properties": {
+        "id": "earthquake_004",
+        "severity": "Moderate",
+        "risk_level": "medium",
+        "last_updated": "2024-01-12",
+        "description": "Mediterranean fault line",
+        "magnitude": 4.8,
+        "depth_km": 18.5,
+        "fault_system": "Apennine",
+        "country": "Italy",
+        "city": "Rome"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.9784, 41.0082]
+      },
+      "properties": {
+        "id": "earthquake_005",
+        "severity": "Strong",
+        "risk_level": "high",
+        "last_updated": "2024-01-11",
+        "description": "North Anatolian Fault",
+        "magnitude": 6.1,
+        "depth_km": 12.8,
+        "fault_system": "Anatolian",
+        "country": "Turkey",
+        "city": "Istanbul"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.6693, -33.4489]
+      },
+      "properties": {
+        "id": "earthquake_006",
+        "severity": "Major",
+        "risk_level": "high",
+        "last_updated": "2024-01-10",
+        "description": "Nazca Plate subduction",
+        "magnitude": 7.5,
+        "depth_km": 35.2,
+        "fault_system": "Nazca",
+        "country": "Chile",
+        "city": "Santiago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [85.3240, 27.7172]
+      },
+      "properties": {
+        "id": "earthquake_007",
+        "severity": "Major",
+        "risk_level": "high",
+        "last_updated": "2024-01-09",
+        "description": "Himalayan fault zone",
+        "magnitude": 7.0,
+        "depth_km": 25.7,
+        "fault_system": "Himalayan",
+        "country": "Nepal",
+        "city": "Kathmandu"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [174.7633, -41.2865]
+      },
+      "properties": {
+        "id": "earthquake_008",
+        "severity": "Strong",
+        "risk_level": "high",
+        "last_updated": "2024-01-08",
+        "description": "Alpine Fault activity",
+        "magnitude": 6.3,
+        "depth_km": 22.1,
+        "fault_system": "Alpine",
+        "country": "New Zealand",
+        "city": "Wellington"
+      }
+    }
+  ]
+}

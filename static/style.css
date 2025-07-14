@@ -1,0 +1,322 @@
+/* Custom styles for DisasterMap AI */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 1px solid var(--bs-border-color);
+}
+
+#map-container {
+    height: calc(100vh - 56px - 200px);
+    position: relative;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.map-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.analytics-dashboard {
+    border-top: 1px solid var(--bs-border-color);
+}
+
+.stats-bar {
+    background: linear-gradient(135deg, var(--bs-primary), var(--bs-info)) !important;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 0.25rem;
+}
+
+.stat-item {
+    padding: 0.1rem 0.05rem;
+}
+
+.stat-number {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.05rem;
+}
+
+.stat-label {
+    font-size: 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 0.9;
+}
+
+/* Analytics Section Styles */
+.analytics-section {
+    border-top: 1px solid var(--bs-border-color);
+    height: 200px;
+    overflow-y: auto;
+}
+
+.activity-feed {
+    height: 150px;
+    overflow-y: auto;
+}
+
+.activity-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.75rem;
+    height: 100%;
+    overflow-y: visible;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+    border-left: 3px solid var(--bs-secondary);
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.activity-icon.flood {
+    background: var(--bs-primary);
+    color: white;
+}
+
+.activity-icon.wildfire {
+    background: var(--bs-danger);
+    color: white;
+}
+
+.activity-icon.drought {
+    background: var(--bs-warning);
+    color: black;
+}
+
+.activity-icon.earthquake {
+    background: var(--bs-secondary);
+    color: white;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: var(--bs-secondary);
+}
+
+.selection-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Animate statistics counters */
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+    animation: countUp 0.6s ease-out;
+}
+
+/* Weather panel styling */
+.weather-info {
+    font-size: 0.9rem;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Bookmark styling */
+.bookmark-item {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.25rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.bookmark-item:hover {
+    background-color: var(--bs-secondary);
+}
+
+/* Risk level indicators */
+.risk-high {
+    color: var(--bs-danger);
+}
+
+.risk-medium {
+    color: var(--bs-warning);
+}
+
+.risk-low {
+    color: var(--bs-success);
+}
+
+/* Map popup styling */
+.leaflet-popup-content {
+    margin: 8px 12px;
+    line-height: 1.4;
+}
+
+.popup-weather {
+    min-width: 200px;
+}
+
+.popup-weather .weather-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.popup-weather .weather-details {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Custom marker styles */
+.disaster-marker {
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.flood-marker {
+    background-color: #007bff;
+}
+
+.wildfire-marker {
+    background-color: #dc3545;
+}
+
+.drought-marker {
+    background-color: #ffc107;
+}
+
+.earthquake-marker {
+    background-color: #6c757d;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 56px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 56px);
+        transition: left 0.3s ease;
+        z-index: 1050;
+    }
+    
+    .sidebar.show {
+        left: 0;
+    }
+    
+    #map-container {
+        height: calc(100vh - 56px - 150px);
+    }
+    
+    .analytics-panel {
+        height: 150px;
+    }
+    
+    .analytics-panel .row {
+        flex-direction: column;
+    }
+    
+    .analytics-panel .col-md-8,
+    .analytics-panel .col-md-4 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
+/* Chart container styling */
+.chart-container {
+    position: relative;
+    height: 120px;
+    margin-bottom: 1rem;
+}
+
+/* Error message styling */
+.error-message {
+    background-color: var(--bs-danger);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Success message styling */
+.success-message {
+    background-color: var(--bs-success);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--bs-dark);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-light);
+}

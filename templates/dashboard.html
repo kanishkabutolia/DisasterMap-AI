@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DisasterMap AI - GIS Disaster Analysis</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-satellite-dish me-2"></i>
+                    DisasterMap AI
+                </a>
+                
+                <!-- Real-time Clock -->
+                <div class="navbar-text me-3">
+                    <i class="fas fa-clock me-1"></i>
+                    <span id="current-time"></span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="d-flex">
+                    <div class="input-group me-3" style="max-width: 300px;">
+                        <input type="text" class="form-control" id="city-search" placeholder="Search city...">
+                        <button class="btn btn-outline-light" type="button" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row g-0">
+            <!-- Sidebar -->
+            <div class="col-md-3 bg-dark sidebar">
+                <div class="p-3">
+                    <!-- Disaster Layer Controls -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-layer-group me-2"></i>
+                            Disaster Layers
+                        </h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="flood-layer" checked>
+                            <label class="form-check-label text-light" for="flood-layer">
+                                <i class="fas fa-water text-primary me-2"></i>Floods
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="wildfire-layer">
+                            <label class="form-check-label text-light" for="wildfire-layer">
+                                <i class="fas fa-fire text-danger me-2"></i>Wildfires
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="drought-layer">
+                            <label class="form-check-label text-light" for="drought-layer">
+                                <i class="fas fa-sun text-warning me-2"></i>Droughts
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="earthquake-layer">
+                            <label class="form-check-label text-light" for="earthquake-layer">
+                                <i class="fas fa-mountain text-secondary me-2"></i>Earthquakes
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Weather Panel -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-cloud-sun me-2"></i>
+                            Weather Info
+                        </h5>
+                        <div id="weather-panel" class="card bg-secondary">
+                            <div class="card-body">
+                                <p class="card-text text-light">Click on map to get weather data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ML Risk Assessment -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-brain me-2"></i>
+                            Risk Assessment
+                        </h5>
+                        <div id="risk-panel" class="card bg-secondary">
+                            <div class="card-body">
+                                <p class="card-text text-light">AI risk analysis unavailable</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bookmarks -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-bookmark me-2"></i>
+                            Bookmarks
+                        </h5>
+                        <div id="bookmarks-list" class="mb-2"></div>
+                        <button class="btn btn-outline-light btn-sm w-100" id="add-bookmark-btn">
+                            <i class="fas fa-plus me-1"></i>Add Current Location
+                        </button>
+                    </div>
+
+                    <!-- Quick Navigation -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-globe me-2"></i>
+                            Quick Navigation
+                        </h5>
+                        <div class="row g-1">
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('north-america')">
+                                    <i class="fas fa-flag-usa me-1"></i>N. America
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('europe')">
+                                    <i class="fas fa-flag me-1"></i>Europe
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('asia')">
+                                    <i class="fas fa-yin-yang me-1"></i>Asia
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('africa')">
+                                    <i class="fas fa-globe-africa me-1"></i>Africa
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('south-america')">
+                                    <i class="fas fa-mountain me-1"></i>S. America
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-outline-light btn-sm w-100" onclick="app.navigateToRegion('oceania')">
+                                    <i class="fas fa-island-tropical me-1"></i>Oceania
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <button class="btn btn-outline-info btn-sm w-100 mb-1" onclick="app.toggleAllLayers(true)">
+                                <i class="fas fa-eye me-1"></i>Show All Layers
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm w-100" onclick="app.toggleAllLayers(false)">
+                                <i class="fas fa-eye-slash me-1"></i>Hide All Layers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Download Controls -->
+                    <div class="mb-4">
+                        <h5 class="text-light mb-3">
+                            <i class="fas fa-download me-2"></i>
+                            Export Data
+                        </h5>
+                        <div class="mb-2">
+                            <select class="form-select form-select-sm mb-2" id="export-format">
+                                <option value="csv">CSV Format</option>
+                                <option value="geojson">GeoJSON Format</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success btn-sm w-100 mb-2" id="download-report-btn">
+                            <i class="fas fa-file-download me-1"></i>Download Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Map Container -->
+                <div id="map-container" class="position-relative">
+                    <div id="map"></div>
+                    
+                    <!-- Map Controls Overlay -->
+                    <div class="map-controls">
+                        <button class="btn btn-light btn-sm mb-2" id="toggle-sidebar" title="Toggle Sidebar">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm mb-2" id="locate-btn" title="Find My Location">
+                            <i class="fas fa-crosshairs"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm mb-2" onclick="app.map.setView([20, 0], 2)" title="Global View">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm mb-2" onclick="app.toggleAllLayers(true)" title="Show All Disasters">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-light btn-sm" onclick="app.toggleAllLayers(false)" title="Hide All Disasters">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section bg-dark text-light p-3">
+                    <div class="row">
+                        <!-- Activity Feed -->
+                        <div class="col-md-6">
+                            <div class="activity-feed">
+                                <h6><i class="fas fa-rss me-2"></i>Global Activity Feed</h6>
+                                <div id="activity-feed" class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon flood"><i class="fas fa-water"></i></div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Flood Alert - Tokyo</div>
+                                            <div class="activity-time">2 hours ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon wildfire"><i class="fas fa-fire"></i></div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Wildfire - Madrid</div>
+                                            <div class="activity-time">4 hours ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon earthquake"><i class="fas fa-mountain"></i></div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Earthquake - Santiago</div>
+                                            <div class="activity-time">6 hours ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon drought"><i class="fas fa-sun"></i></div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Drought Warning - Alice Springs</div>
+                                            <div class="activity-time">8 hours ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Analytics Info -->
+                        <div class="col-md-6">
+                            <!-- Current Selection Info -->
+                            <div class="mb-3">
+                                <h6><i class="fas fa-info-circle me-2"></i>Current Selection</h6>
+                                <div id="selection-info" class="selection-panel">
+                                    <div class="text-muted">Click anywhere on the map to see detailed information</div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div>
+                                <h6><i class="fas fa-bolt me-2"></i>Quick Actions</h6>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-warning btn-sm" onclick="app.showEmergencyContacts()">
+                                        <i class="fas fa-phone me-1"></i>Emergency Contacts
+                                    </button>
+                                    <button class="btn btn-outline-info btn-sm" onclick="app.generateGlobalReport()">
+                                        <i class="fas fa-file-alt me-1"></i>Generate Global Report
+                                    </button>
+                                    <button class="btn btn-outline-success btn-sm" onclick="app.refreshData()">
+                                        <i class="fas fa-sync-alt me-1"></i>Refresh Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-121.4694, 38.5816]
+      },
+      "properties": {
+        "id": "fire_001",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-15",
+        "description": "Active wildfire in forest area",
+        "acres_burned": 5420,
+        "containment_percent": 25,
+        "country": "USA",
+        "city": "Sacramento"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-117.1611, 32.7157]
+      },
+      "properties": {
+        "id": "fire_002",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-14",
+        "description": "Brush fire near residential area",
+        "acres_burned": 1200,
+        "containment_percent": 60,
+        "country": "USA",
+        "city": "San Diego"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.7492, 40.4637]
+      },
+      "properties": {
+        "id": "fire_003",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-13",
+        "description": "Mediterranean forest fire",
+        "acres_burned": 8900,
+        "containment_percent": 15,
+        "country": "Spain",
+        "city": "Madrid"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.2137, 46.2276]
+      },
+      "properties": {
+        "id": "fire_004",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-12",
+        "description": "Controlled burn operation",
+        "acres_burned": 450,
+        "containment_percent": 90,
+        "country": "France",
+        "city": "Clermont-Ferrand"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [146.9161, -31.2532]
+      },
+      "properties": {
+        "id": "fire_005",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-11",
+        "description": "Bushfire in eucalyptus forest",
+        "acres_burned": 12800,
+        "containment_percent": 30,
+        "country": "Australia",
+        "city": "Armidale"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [23.7275, 37.9755]
+      },
+      "properties": {
+        "id": "fire_006",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-10",
+        "description": "Mediterranean scrubland fire",
+        "acres_burned": 2300,
+        "containment_percent": 55,
+        "country": "Greece",
+        "city": "Athens"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-123.1207, 49.2827]
+      },
+      "properties": {
+        "id": "fire_007",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-09",
+        "description": "Boreal forest fire",
+        "acres_burned": 4500,
+        "containment_percent": 40,
+        "country": "Canada",
+        "city": "Vancouver"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.6693, -33.4489]
+      },
+      "properties": {
+        "id": "fire_008",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-08",
+        "description": "Andes mountain fire",
+        "acres_burned": 6700,
+        "containment_percent": 20,
+        "country": "Chile",
+        "city": "Santiago"
+      }
+    }
+  ]
+}

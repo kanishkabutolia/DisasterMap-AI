@@ -1,0 +1,149 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-119.4179, 36.7783]
+      },
+      "properties": {
+        "id": "drought_001",
+        "severity": "Extreme",
+        "risk_level": "high",
+        "last_updated": "2024-01-15",
+        "description": "Exceptional drought conditions",
+        "drought_index": 4,
+        "duration_weeks": 52,
+        "country": "USA",
+        "city": "Fresno"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-101.8313, 35.2271]
+      },
+      "properties": {
+        "id": "drought_002",
+        "severity": "Severe",
+        "risk_level": "high",
+        "last_updated": "2024-01-14",
+        "description": "Agricultural drought impact",
+        "drought_index": 3,
+        "duration_weeks": 28,
+        "country": "USA",
+        "city": "Amarillo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [31.2357, -22.9576]
+      },
+      "properties": {
+        "id": "drought_003",
+        "severity": "Extreme",
+        "risk_level": "high",
+        "last_updated": "2024-01-13",
+        "description": "Severe water shortage",
+        "drought_index": 4,
+        "duration_weeks": 78,
+        "country": "South Africa",
+        "city": "Polokwane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [34.8516, 31.2001]
+      },
+      "properties": {
+        "id": "drought_004",
+        "severity": "Severe",
+        "risk_level": "high",
+        "last_updated": "2024-01-12",
+        "description": "Mediterranean drought",
+        "drought_index": 3,
+        "duration_weeks": 45,
+        "country": "Israel",
+        "city": "Gaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [133.8807, -23.6980]
+      },
+      "properties": {
+        "id": "drought_005",
+        "severity": "Extreme",
+        "risk_level": "high",
+        "last_updated": "2024-01-11",
+        "description": "Outback drought conditions",
+        "drought_index": 4,
+        "duration_weeks": 156,
+        "country": "Australia",
+        "city": "Alice Springs"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.5946, 12.9716]
+      },
+      "properties": {
+        "id": "drought_006",
+        "severity": "Severe",
+        "risk_level": "high",
+        "last_updated": "2024-01-10",
+        "description": "Monsoon failure impact",
+        "drought_index": 3,
+        "duration_weeks": 32,
+        "country": "India",
+        "city": "Bangalore"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.1734, 13.5137]
+      },
+      "properties": {
+        "id": "drought_007",
+        "severity": "Extreme",
+        "risk_level": "high",
+        "last_updated": "2024-01-09",
+        "description": "Sahel drought crisis",
+        "drought_index": 4,
+        "duration_weeks": 104,
+        "country": "Niger",
+        "city": "Niamey"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.8825, -15.7942]
+      },
+      "properties": {
+        "id": "drought_008",
+        "severity": "Moderate",
+        "risk_level": "medium",
+        "last_updated": "2024-01-08",
+        "description": "Cerrado region drought",
+        "drought_index": 2,
+        "duration_weeks": 24,
+        "country": "Brazil",
+        "city": "Brasília"
+      }
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-74.0060, 40.7128]
+      },
+      "properties": {
+        "id": "flood_001",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-15",
+        "description": "Coastal flooding risk due to storm surge",
+        "population_affected": 50000,
+        "area_km2": 25.5,
+        "country": "USA",
+        "city": "New York"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.6298, 41.8781]
+      },
+      "properties": {
+        "id": "flood_002",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-14",
+        "description": "River overflow potential",
+        "population_affected": 15000,
+        "area_km2": 12.3,
+        "country": "USA",
+        "city": "Chicago"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.3522, 48.8566]
+      },
+      "properties": {
+        "id": "flood_003",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-13",
+        "description": "Seine River flooding risk",
+        "population_affected": 45000,
+        "area_km2": 18.7,
+        "country": "France",
+        "city": "Paris"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.6503, 35.6762]
+      },
+      "properties": {
+        "id": "flood_004",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-12",
+        "description": "Typhoon-related flooding",
+        "population_affected": 120000,
+        "area_km2": 35.2,
+        "country": "Japan",
+        "city": "Tokyo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.1276, 51.5074]
+      },
+      "properties": {
+        "id": "flood_005",
+        "severity": "Low",
+        "risk_level": "low",
+        "last_updated": "2024-01-11",
+        "description": "Thames River flood risk",
+        "population_affected": 25000,
+        "area_km2": 15.3,
+        "country": "UK",
+        "city": "London"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.4964, 41.9028]
+      },
+      "properties": {
+        "id": "flood_006",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-10",
+        "description": "Tiber River flooding",
+        "population_affected": 30000,
+        "area_km2": 20.1,
+        "country": "Italy",
+        "city": "Rome"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.1025, 28.7041]
+      },
+      "properties": {
+        "id": "flood_007",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-09",
+        "description": "Monsoon flooding",
+        "population_affected": 200000,
+        "area_km2": 55.8,
+        "country": "India",
+        "city": "New Delhi"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [121.4737, 31.2304]
+      },
+      "properties": {
+        "id": "flood_008",
+        "severity": "High",
+        "risk_level": "high",
+        "last_updated": "2024-01-08",
+        "description": "Yangtze River flooding",
+        "population_affected": 180000,
+        "area_km2": 42.6,
+        "country": "China",
+        "city": "Shanghai"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [151.2093, -33.8688]
+      },
+      "properties": {
+        "id": "flood_009",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-07",
+        "description": "Coastal storm surge",
+        "population_affected": 35000,
+        "area_km2": 22.4,
+        "country": "Australia",
+        "city": "Sydney"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-46.6333, -23.5505]
+      },
+      "properties": {
+        "id": "flood_010",
+        "severity": "Medium",
+        "risk_level": "medium",
+        "last_updated": "2024-01-06",
+        "description": "Urban flooding from heavy rains",
+        "population_affected": 85000,
+        "area_km2": 28.9,
+        "country": "Brazil",
+        "city": "São Paulo"
+      }
+    }
+  ]
+}
